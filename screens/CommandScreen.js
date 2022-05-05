@@ -1,10 +1,32 @@
-import React from "react";
-import {View, Text, StyleSheet} from "react-native";
+import React, {useEffect, useState} from "react";
+import {View, Text, StyleSheet, FlatList} from "react-native";
+import CommandsApi from "../services/CommandsApi";
+import Command from "../components/Command";
 
 const CommandScreen = () => {
+
+    const [commands, setCommands] = useState([])
+    const fetchCommands = async () => {
+        const data = await CommandsApi.getAllCommands()
+        console.log(data)
+        setCommands(data)
+    }
+    useEffect(() => {
+        fetchCommands()
+    }, [])
+
+    //A faire le je vais à la page de plus d'informations
+    const moreInformation = (key) => {
+        console.log(key)
+    }
+
+    const renderItem = ({item}) => {
+        return <Command command={item}/>
+    }
+
     return (
         <View style={styles.container}>
-            <Text>Commandes ...</Text>
+            <FlatList data={commands} renderItem={renderItem}/>
         </View>
     )
 }
