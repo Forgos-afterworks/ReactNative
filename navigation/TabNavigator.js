@@ -1,13 +1,14 @@
 import React from "react";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import AccueilScreen from "../screens/AccueilScreen";
-import { Feather} from '@expo/vector-icons';
+import CommandScreen from "../screens/CommandScreen";
+import { Feather, Ionicons  } from '@expo/vector-icons';
+import AccountScreen from "../screens/AccountScreen";
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
     return (
-        <Tab.Navigator initialRouteName={AccueilScreen}
+        <Tab.Navigator initialRouteName={"Command"}
                        screenOptions={{
                            headerStyle: {
                                backgroundColor: "#2E4657"
@@ -24,10 +25,16 @@ const TabNavigator = () => {
                            }, tabBarActiveTintColor: "#F18F01",
                            tabBarInactiveTintColor: "#FFF"
                        }}>
-            <Tab.Screen name={"Posts"} component={AccueilScreen}
+            <Tab.Screen name={"Command"} component={CommandScreen}
                         options={{
-                            headerTitle: "Liste des posts",
-                            tabBarIcon: ({color, focused}) => <Feather name="file" size={focused ? 28 : 24}
+                            headerTitle: "Commandes",
+                            tabBarIcon: ({color, focused}) => <Feather name="shopping-cart" size={focused ? 28 : 24}
+                                                                       color={color}/>
+                        }}/>
+            <Tab.Screen name={"Account"} component={AccountScreen}
+                        options={{
+                            headerTitle: "Mon compte",
+                            tabBarIcon: ({color, focused}) => <Ionicons name="person" size={focused ? 28 : 24}
                                                                        color={color}/>
                         }}/>
         </Tab.Navigator>
