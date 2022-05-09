@@ -1,35 +1,39 @@
 import React from "react";
 import {Text, View, StyleSheet} from "react-native";
-import {FontAwesome5} from '@expo/vector-icons';
 import {TouchableOpacity} from "react-native";
 
 const Command = ({command, moreInformation}) => {
     console.log(command);
 
     return (
-        <View style={styles.todo}>
-            <TouchableOpacity onPress={(e) => moreInformation(command.idCommande)}>
-                <FontAwesome5 name="trash" size={18} color="black"/>
-            </TouchableOpacity>
-            <Text style={styles.text}>
-                Commande n° {command.idCommande}
-            </Text>
-        </View>
+        <TouchableOpacity onPress={(e) => moreInformation(command.idCommande)}>
+            <View style={styles.command}>
+                <Text style={styles.title}>
+                    Commande n° {command.idCommande}
+                </Text>
+                <Text>
+                    Table n° {command.idTable.nom}
+                </Text>
+                <Text>
+                    État de la commande : {command.idStatut.nom}
+                </Text>
+            </View>
+        </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
-        todo: {
+        command: {
             borderWidth: 1,
-            borderStyle: "dashed",
-            borderColor: "coral",
+            borderStyle: "solid",
+            borderColor: "#E33636",
             borderRadius: 10,
-            padding: 15,
-            marginBottom: 13,
-            flexDirection: "row",
-            alignItems: "center"
-        }, text: {
-            marginLeft: 14
+            padding: 10,
+            flexDirection: "column",
+            marginTop: 10
+        }, title: {
+            fontWeight: "bold",
+            fontSize: 15
         }
     }
 )

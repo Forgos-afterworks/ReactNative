@@ -11,18 +11,18 @@ const TabNavigator = () => {
         <Tab.Navigator initialRouteName={"Command"}
                        screenOptions={{
                            headerStyle: {
-                               backgroundColor: "#2E4657"
+                               backgroundColor: "#213B8E"
                            }, headerTitleStyle: {
                                color: "white",
                                fontWeight: "bold"
                            }, headerTitleAlign: "center",
                            tabBarStyle: {
-                               backgroundColor: "#2E4657",
+                               backgroundColor: "#213B8E",
                                borderRadius: 15,
                                fontWeight: "bold",
                                marginBottom: 10,
                                marginHorizontal: 15
-                           }, tabBarActiveTintColor: "#F18F01",
+                           }, tabBarActiveTintColor: "#E33636",
                            tabBarInactiveTintColor: "#FFF"
                        }}>
             <Tab.Screen name={"Command"} component={CommandScreen}

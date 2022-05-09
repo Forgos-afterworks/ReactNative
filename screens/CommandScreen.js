@@ -26,6 +26,7 @@ const CommandScreen = () => {
 
     return (
         <View style={styles.container}>
+            <Text style={styles.title}>Liste des commandes</Text>
             <FlatList data={commands} renderItem={renderItem}/>
         </View>
     )
@@ -34,8 +35,10 @@ const CommandScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
+        margin: 20
+    }, title: {
+        fontWeight: "bold",
+        fontSize: 25
     }
 })
 
