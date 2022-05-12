@@ -5,4 +5,14 @@ const getAllCommands = () => {
         .then((r) => r.data)
 }
 
-export default { getAllCommands }
+const getCommandDeclinaisonByCommandId = (idCommand) => {
+    return axios.get("/commandedeclinaisons/" + idCommand)
+        .then((r) => r.data)
+}
+
+const getAllStatut = () => {
+    return axios.get("/statut")
+        .then((r) => r.data)
+}
+
+export default { getAllCommands, getCommandDeclinaisonByCommandId, getAllStatut }

@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, FlatList} from "react-native";
 import CommandsApi from "../services/CommandsApi";
 import Command from "../components/Command";
 
-const CommandScreen = () => {
+const CommandScreen = (props) => {
 
     const [commands, setCommands] = useState([])
     const fetchCommands = async () => {
@@ -15,13 +15,8 @@ const CommandScreen = () => {
         fetchCommands()
     }, [])
 
-    //A faire le je vais à la page de plus d'informations
-    const moreInformation = (key) => {
-        console.log(key)
-    }
-
     const renderItem = ({item}) => {
-        return <Command command={item}/>
+        return <Command item={item} {...props}/>
     }
 
     return (

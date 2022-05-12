@@ -74,14 +74,14 @@ const styles = StyleSheet.create({
         width: "100%"
     }, btn: {
         padding: 10,
-        backgroundColor: "#B5BCD3",
-        borderRadius: 15,
+        backgroundColor: "#E33636",
+        borderRadius: 15
     }, required : {
         color: "red"
     }, hidden: {
         opacity: 0
     }, alert: {
-        backgroundColor: "rgba(255, 0, 0, 0.5)"
+        backgroundColor: "#E33636"
     }
 })
 

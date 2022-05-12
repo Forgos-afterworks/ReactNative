@@ -2,20 +2,20 @@ import React from "react";
 import {Text, View, StyleSheet} from "react-native";
 import {TouchableOpacity} from "react-native";
 
-const Command = ({command, moreInformation}) => {
-    console.log(command);
-
+const Command = ({item, navigation}) => {
     return (
-        <TouchableOpacity onPress={(e) => moreInformation(command.idCommande)}>
+        <TouchableOpacity onPress={(e) => {
+            navigation.navigate("DetailCommand", {item})
+        }}>
             <View style={styles.command}>
                 <Text style={styles.title}>
-                    Commande n° {command.idCommande}
+                    Commande n° {item.idCommande}
+                </Text>
+                <Text style={styles.alignItemEnd}>
+                    Table n° {item.idTable.nom}
                 </Text>
                 <Text>
-                    Table n° {command.idTable.nom}
-                </Text>
-                <Text>
-                    État de la commande : {command.idStatut.nom}
+                    État de la commande : {item.idStatut.nom}
                 </Text>
             </View>
         </TouchableOpacity>
@@ -34,6 +34,8 @@ const styles = StyleSheet.create({
         }, title: {
             fontWeight: "bold",
             fontSize: 15
+        }, alignItemEnd: {
+            alignItems: "flex-end"
         }
     }
 )
