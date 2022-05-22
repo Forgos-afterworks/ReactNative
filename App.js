@@ -1,6 +1,6 @@
 import { StyleSheet} from 'react-native';
 import {NavigationContainer} from "@react-navigation/native";
-import StackNavigator from "./navigation/StackNavigator";
+import StackNavigator from "./navigation/LoginStackNavigator";
 
 export default function App() {
     return (

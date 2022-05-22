@@ -3,12 +3,13 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import CommandScreen from "../screens/CommandScreen";
 import { Feather, Ionicons  } from '@expo/vector-icons';
 import AccountScreen from "../screens/AccountScreen";
+import DetailCommandStackNavigator from "./DetailCommandStackNavigator";
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
     return (
-        <Tab.Navigator initialRouteName={"Command"}
+        <Tab.Navigator initialRouteName={"CommandNavigator"}
                        screenOptions={{
                            headerStyle: {
                                backgroundColor: "#213B8E"
@@ -25,7 +26,7 @@ const TabNavigator = () => {
                            }, tabBarActiveTintColor: "#E33636",
                            tabBarInactiveTintColor: "#FFF"
                        }}>
-            <Tab.Screen name={"Command"} component={CommandScreen}
+            <Tab.Screen name={"CommandNavigator"} component={DetailCommandStackNavigator}
                         options={{
                             headerTitle: "Commandes",
                             tabBarIcon: ({color, focused}) => <Feather name="shopping-cart" size={focused ? 28 : 24}
