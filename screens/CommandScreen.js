@@ -8,7 +8,6 @@ const CommandScreen = (props) => {
     const [commands, setCommands] = useState([])
     const fetchCommands = async () => {
         const data = await CommandsApi.getAllCommands()
-        console.log(data)
         setCommands(data)
     }
     useEffect(() => {
@@ -22,7 +21,7 @@ const CommandScreen = (props) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Liste des commandes</Text>
-            <FlatList data={commands} renderItem={renderItem}/>
+            <FlatList data={commands} renderItem={renderItem} keyExtractor={item => item.idCommande}/>
         </View>
     )
 }

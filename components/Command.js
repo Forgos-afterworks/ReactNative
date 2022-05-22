@@ -6,7 +6,7 @@ const Command = ({item, navigation}) => {
     return (
         <TouchableOpacity onPress={(e) => {
             navigation.navigate("DetailCommand", {item})
-        }}>
+        }} key={item.idCommande}>
             <View style={styles.command}>
                 <Text style={styles.title}>
                     Commande n° {item.idCommande}

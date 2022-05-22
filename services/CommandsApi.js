@@ -10,9 +10,14 @@ const getCommandDeclinaisonByCommandId = (idCommand) => {
         .then((r) => r.data)
 }
 
-const getAllStatut = () => {
-    return axios.get("/statut")
+const updateCommand = (idCommand, data) => {
+    return axios.put("/commandes/" + idCommand, data)
         .then((r) => r.data)
 }
 
-export default { getAllCommands, getCommandDeclinaisonByCommandId, getAllStatut }
+const getStatutByIdCommand = (idCommand) => {
+    return axios.get("/commandes/" + idCommand)
+        .then((r) => r.data[0].idStatut)
+}
+
+export default { getAllCommands, getCommandDeclinaisonByCommandId, updateCommand, getStatutByIdCommand }
